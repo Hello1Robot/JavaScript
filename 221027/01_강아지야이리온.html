@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강아지야 이리온</title>
+</head>
+<body>
+    <button id="dog-btn">강아지소환술</button>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const dogBtn = document.querySelector('#dog-btn')
+        const dogSearchURL = 'https://dog.ceo/api/breeds/image/random'
+        const body = document.querySelector('body')
+        dogBtn.addEventListener('click', function(event){
+            axios.get(dogSearchURL)
+                .then((response) => {
+                    imgElem = document.createElement('img')
+                    imgElem.setAttribute('src', response.data['message'])
+                    body.appendChild(imgElem)
+                })
+                .catch((error) => {
+                    console.log('멍! 청! 이')
+                })
+                console.log('멍ㅋㅋ')
+            }
+        )
+
+    </script>
+
+</body>
+</html>
